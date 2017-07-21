@@ -1,6 +1,6 @@
 (function ($) {
 
-  Drupal.behaviors.swaypointSelectAllCT = {
+  Drupal.behaviors.checkboxSelectAll = {
     attach: function (context, settings) {
       var $context = $(context);
 
