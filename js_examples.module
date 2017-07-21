@@ -17,6 +17,12 @@ function js_examples_menu() {
     'page arguments'  => array('js_examples_checkbox_select_all_form'),
     'access callback' => TRUE,
   );
+  $items['js-examples/checkbox-check-limit'] = array(
+    'title'           => 'Check limit checkboxes.',
+    'page callback'   => 'drupal_get_form',
+    'page arguments'  => array('js_examples_checkbox_check_limit_form'),
+    'access callback' => TRUE,
+  );
 
   return $items;
 }
@@ -35,4 +41,21 @@ function js_examples_checkbox_select_all_form($form, $form_state) {
   );
 
   return $form;
+}
+
+/**
+ *
+ */
+function js_examples_checkbox_check_limit_form($form, $form_state) {
+  $form['checkbox-items'] = array(
+    '#type' => 'checkboxes',
+    '#options' => range(1, 10),
+  );
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'js_examples') . '/js/checkbox_check_limit.js',
+  );
+
+  return $form;
+
 }
