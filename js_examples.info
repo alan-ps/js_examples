@@ -1,0 +1,4 @@
+name = JavaScript Examples for Developers
+description = A variety of example code for you to learn from and hack upon.
+package = Example modules
+core = 7.x
