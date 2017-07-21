@@ -4,3 +4,35 @@
  * @file
  * A variety of example code for you to learn from and hack upon.
  */
+
+/**
+ * Implements hook_menu().
+ */
+function js_examples_menu() {
+  $items = array();
+
+  $items['js-examples/checkbox-select-all'] = array(
+    'title'           => 'Select all',
+    'page callback'   => 'drupal_get_form',
+    'page arguments'  => array('js_examples_checkbox_select_all_form'),
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ *
+ */
+function js_examples_checkbox_select_all_form($form, $form_state) {
+  $form['checkbox-items'] = array(
+    '#type' => 'checkboxes',
+    '#options' => range(1, 10),
+  );
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'js_examples') . '/js/checkbox_select_all.js',
+  );
+
+  return $form;
+}
